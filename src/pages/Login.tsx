@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import GlassAuthLayout from "../components/GlassAuthLayout";
 import IconInput from "../components/IconInput";
-import PasswordInput from "../components/PasswordInput";
+import PasswordInput from "../components/ui/PasswordInput";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
