@@ -1,40 +1,54 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import AuthLayout from "../components/AuthLayout";
+import GlassAuthLayout from "../components/GlassAuthLayout";
+import IconInput from "../components/IconInput";
+import PasswordInput from "../components/PasswordInput";
 
 const Login = () => {
+  const [form, setForm] = useState({ email: "", password: "" });
+
   return (
-    <AuthLayout title="Connexion">
-      <form className="space-y-4">
-        <input
+    <GlassAuthLayout title="Member Login">
+      <form className="space-y-5">
+        <IconInput
           type="email"
           placeholder="Email"
-          className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          value={form.email}
+          onChange={(e) =>
+            setForm({ ...form, email: e.target.value })
+          }
+          icon={<span>📧</span>}
         />
 
-        <input
-          type="password"
-          placeholder="Mot de passe"
-          className="w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        <PasswordInput
+          value={form.password}
+          onChange={(e) =>
+            setForm({ ...form, password: e.target.value })
+          }
         />
 
-        <button
-          type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition"
-        >
-          Se connecter
+        <div className="flex justify-between text-sm text-white/70">
+          <label className="flex items-center gap-2">
+            <input type="checkbox" />
+            Remember me
+          </label>
+          <span className="hover:underline cursor-pointer">
+            Forgot password?
+          </span>
+        </div>
+
+        <button className="w-full mt-4 bg-indigo-600 hover:bg-indigo-700 py-3 rounded-lg font-medium transition">
+          Login
         </button>
       </form>
 
-      <p className="text-center text-sm text-slate-600 mt-6">
+      <p className="text-center text-sm text-white/70 mt-6">
         Pas de compte ?{" "}
-        <Link
-          to="/register"
-          className="text-indigo-600 hover:underline font-medium"
-        >
+        <Link to="/register" className="underline">
           Inscription
         </Link>
       </p>
-    </AuthLayout>
+    </GlassAuthLayout>
   );
 };
 
