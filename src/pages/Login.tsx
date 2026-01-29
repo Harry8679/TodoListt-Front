@@ -171,7 +171,7 @@ export const Login: React.FC = () => {
         </div>
 
         {/* Lien vers l'inscription */}
-        <Link to="/register">
+        <Link to="/inscription">
           <Button type="button" variant="secondary">
             Créer un compte
           </Button>
