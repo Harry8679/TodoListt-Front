@@ -24,7 +24,7 @@ interface UseFormReturn<T> {
 /**
  * Hook personnalisé pour gérer l'état et la validation des formulaires
  */
-export function useForm<T extends Record<string, string>>({
+export function useForm<T extends Record<keyof T, string>>({
   initialValues,
   validationRules,
   onSubmit,
