@@ -219,7 +219,7 @@ export const Register: React.FC = () => {
         </div>
 
         {/* Lien vers la connexion */}
-        <Link to="/login">
+        <Link to="/connexion">
           <Button type="button" variant="secondary">
             Se connecter
           </Button>
