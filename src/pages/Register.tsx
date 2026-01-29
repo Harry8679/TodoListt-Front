@@ -64,12 +64,15 @@ export const Register: React.FC = () => {
         console.log('Redirection vers le dashboard...');
       }, 2000);
 
-    } catch (error: any) {
-      setErrorMessage(
-        error.message || 'Une erreur est survenue lors de l\'inscription'
-      );
-      setSuccessMessage('');
-    }
+    } catch (error: unknown) {
+  if (error instanceof Error) {
+    setErrorMessage(error.message);
+  } else {
+    setErrorMessage("Une erreur est survenue lors de l'inscription");
+  }
+
+  setSuccessMessage('');
+}
   }
 
   return (
