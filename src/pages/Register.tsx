@@ -73,8 +73,7 @@ export const Register: React.FC = () => {
   }
 
   return (
-    <AuthLayout title="Créer un compte" subtitle="Inscrivez-vous pour commencer à gérer vos tâches"
-    >
+    <AuthLayout title="Créer un compte" subtitle="Inscrivez-vous pour commencer à gérer vos tâches">
       <form onSubmit={handleSubmit} className="space-y-1">
         {/* Messages d'alerte */}
         {errorMessage && (
