@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthLayout } from '../components/layout/AuthLayout';
-import { Input } from '../components/ui/Input';
+// import { AuthLayout } from '../components/layout/AuthLayout';
+// import { Input } from '../components/ui/Input';
 import { PasswordInput } from '../components/ui/PasswordInput';
 import { Button } from '../components/ui/Button';
 import { Alert } from '../components/ui/Alert';
 import { useForm } from '../hooks/useForm';
-import { RegisterFormData } from '../types/auth.types';
+import type { RegisterFormData } from '../types/auth.types';
 import { registerValidationRules } from '../utils/validation';
+import { Input } from '../components/ui';
+import AuthLayout from '../components/layout/AuthLayout';
 
 /**
  * Page d'inscription avec formulaire complet
@@ -71,8 +73,7 @@ export const Register: React.FC = () => {
   }
 
   return (
-    <AuthLayout
-      title="Créer un compte"
+    <AuthLayout title="Créer un compte"
       subtitle="Inscrivez-vous pour commencer à gérer vos tâches"
     >
       <form onSubmit={handleSubmit} className="space-y-1">
