@@ -1,6 +1,5 @@
 import apiClient from './api.service';
 import type { AuthResponse, LoginFormData, RegisterFormData, User } from '../types/auth.types';
-// import type { AuthResponse, User } from '../types/api.types';
 import { AxiosError } from 'axios';
 
 class AuthService {

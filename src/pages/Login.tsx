@@ -8,6 +8,7 @@ import AuthLayout from '../components/layout/AuthLayout';
 import { useForm } from '../hooks/useForm';
 import type { LoginFormData } from '../types/auth.types';
 import { loginValidationRules } from '../utils/validation';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Page de connexion avec formulaire complet
@@ -16,6 +17,8 @@ export const Login: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [rememberMe, setRememberMe] = useState(false);
+
+  const navigate = useNavigate();
 
   // Utilisation du hook useForm pour gérer le formulaire
   const {
@@ -38,21 +41,19 @@ export const Login: React.FC = () => {
    */
   async function handleLogin(formData: LoginFormData) {
     try {
-      // Ici, tu appelleras ton API backend
-      console.log('Données de connexion:', formData);
+      // Appel à l'API backend pour la connexion
+      const { user } = await authService.login(formData);
+
+      console.log('Utilisateur connecté:', user);
       console.log('Se souvenir de moi:', rememberMe);
 
-      // Simulation d'un appel API
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Exemple de réponse réussie
+      // Afficher le message de succès
       setSuccessMessage('Connexion réussie ! Redirection...');
       setErrorMessage('');
 
-      // Rediriger après 2 secondes
+      // Rediriger vers le dashboard après 2 secondes
       setTimeout(() => {
-        // window.location.href = '/dashboard';
-        console.log('Redirection vers le dashboard...');
+        navigate('/dashboard');
       }, 2000);
 
     } catch (error: unknown) {
