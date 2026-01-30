@@ -9,6 +9,7 @@ import { useForm } from '../hooks/useForm';
 import type { LoginFormData } from '../types/auth.types';
 import { loginValidationRules } from '../utils/validation';
 import { useNavigate } from 'react-router-dom';
+import authService from '../services/auth.service';
 
 /**
  * Page de connexion avec formulaire complet
