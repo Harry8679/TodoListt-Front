@@ -1,6 +1,7 @@
 import apiClient from './api.service';
 import type { LoginFormData, RegisterFormData } from '../types/auth.types';
 import type { AuthResponse, User } from '../types/api.types';
+import { AxiosError } from 'axios';
 
 class AuthService {
   /**
@@ -20,7 +21,7 @@ class AuthService {
       this.saveAuthData(user, token);
 
       return { user, token };
-    } catch (error: any) {
+    } catch (error) {
       throw this.handleError(error);
     }
   }
@@ -41,7 +42,7 @@ class AuthService {
       this.saveAuthData(user, token);
 
       return { user, token };
-    } catch (error: any) {
+    } catch (error) {
       throw this.handleError(error);
     }
   }
@@ -62,7 +63,7 @@ class AuthService {
 
     if (userStr) {
       try {
-        return JSON.parse(userStr);
+        return JSON.parse(userStr) as User;
       } catch {
         return null;
       }
@@ -96,15 +97,23 @@ class AuthService {
   /**
    * Gérer les erreurs de l'API
    */
-  private handleError(error: any): Error {
-    if (error.response?.data?.message) {
-      return new Error(error.response.data.message);
+  private handleError(error: unknown): Error {
+    // Si c'est une erreur Axios
+    if (error instanceof AxiosError) {
+      if (error.response?.data?.message) {
+        return new Error(error.response.data.message);
+      }
+      if (error.message) {
+        return new Error(error.message);
+      }
     }
 
-    if (error.message) {
-      return new Error(error.message);
+    // Si c'est une Error standard
+    if (error instanceof Error) {
+      return error;
     }
 
+    // Fallback pour les erreurs inconnues
     return new Error('Une erreur est survenue. Veuillez réessayer.');
   }
 }
