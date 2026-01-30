@@ -8,7 +8,7 @@ class AuthService {
    */
   async register(userData: RegisterFormData): Promise<{ user: User; token: string }> {
     try {
-      const response = await apiClient.post<AuthResponse>('/api/auth/register', {
+      const response = apiClient.post<AuthResponse>('/api/auth/register', {
         name: userData.name,
         email: userData.email,
         password: userData.password,
