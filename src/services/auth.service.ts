@@ -30,7 +30,7 @@ class AuthService {
    */
   async login(credentials: LoginFormData): Promise<{ user: User; token: string }> {
     try {
-      const response = await.post<AuthResponse>('/api/auth/login', {
+      const response = await apiClient.post<AuthResponse>('/api/auth/login', {
         email: credentials.email,
         password: credentials.password,
       });
