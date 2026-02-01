@@ -100,7 +100,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           </button>
 
           <button
-            onClick={() => onDelete(task.id)}
+            onClick={() => onDelete(task._id)}
             className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
             aria-label="Supprimer"
           >
