@@ -1,5 +1,6 @@
 import React from 'react';
-import type { Task } from '../../types/api.types';
+import type { Task } from '../../types/task.types';
+// import type { Task } from '../../types/api.types';
 
 interface TaskItemProps {
   task: Task;
