@@ -1,5 +1,3 @@
-// src/types/task.types.ts
-
 export interface Task {
   _id: string;
   title: string;
