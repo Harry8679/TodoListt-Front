@@ -20,7 +20,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
       <div className="flex items-start gap-3">
         {/* Checkbox */}
         <button
-          onClick={() => onToggle(task.id, !task.completed)}
+          onClick={() => onToggle(task._id, !task.completed)}
           className="shrink-0 mt-1"
         >
           <div
