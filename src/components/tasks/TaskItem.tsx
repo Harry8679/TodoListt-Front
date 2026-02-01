@@ -21,7 +21,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
         {/* Checkbox */}
         <button
           onClick={() => onToggle(task.id, !task.completed)}
-          className="flex-shrink-0 mt-1"
+          className="shrink-0 mt-1"
         >
           <div
             className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
