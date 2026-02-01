@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { AxiosInstance, InternalAxiosRequestConfig, AxiosError } from 'axios';
 
 // URL de base de l'API
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:6000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:6600';
 
 /**
  * Instance Axios configurée pour l'API
