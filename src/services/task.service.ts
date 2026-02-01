@@ -1,3 +1,4 @@
+import type { Task } from '../types/task.types';
 import apiClient from './api.service';
 // import type { Task } from '../types/api.types';
 
