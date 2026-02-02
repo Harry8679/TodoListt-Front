@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import authService from '../services/auth.service';
 import taskService from '../services/task.service';
-import type { Task } from '../types/api.types';
+// import type { Task } from '../types/api.types';
 import { TaskItem } from '../components/tasks/TaskItem';
 import { TaskForm } from '../components/tasks/TaskForm';
 import { Alert } from '../components/ui/Alert';
+import type { Task } from '../types/task.types';
 
 export const Dashboard: React.FC = () => {
   const navigate = useNavigate();
