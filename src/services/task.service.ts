@@ -67,14 +67,19 @@ class TaskService {
    * Mettre à jour une tâche
    */
   async updateTask(taskId: string, taskData: UpdateTaskData): Promise<Task> {
-    try {
-      const response = await apiClient.put<TaskResponse>(`/api/tasks/${taskId}`, taskData);
-      return response.data.task;
-    } catch (error) {
-      console.error('Erreur lors de la mise à jour de la tâche:', error);
-      throw error;
-    }
+    const response = await apiClient.put<Task>(`/api/tasks/${taskId}`, taskData);
+    return response.data;
   }
+
+  // async updateTask(taskId: string, taskData: UpdateTaskData): Promise<Task> {
+  //   try {
+  //     const response = await apiClient.put<TaskResponse>(`/api/tasks/${taskId}`, taskData);
+  //     return response.data.task;
+  //   } catch (error) {
+  //     console.error('Erreur lors de la mise à jour de la tâche:', error);
+  //     throw error;
+  //   }
+  // }
 
   /**
    * Supprimer une tâche
