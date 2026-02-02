@@ -34,7 +34,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
       setForm({ title: '', description: '' });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editingTask?.id]); // ✅ Ne dépendre QUE de l'ID
+  }, [editingTask?._id]); // ✅ Ne dépendre QUE de l'ID
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
