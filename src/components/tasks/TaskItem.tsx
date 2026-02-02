@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Task } from '../../types/task.types';
-// import type { Task } from '../../types/api.types';
 
 interface TaskItemProps {
   task: Task;
@@ -18,10 +17,11 @@ export const TaskItem: React.FC<TaskItemProps> = ({
   return (
     <div className="bg-white rounded-lg border border-slate-200 p-4 hover:shadow-md transition-shadow duration-200">
       <div className="flex items-start gap-3">
-        {/* Checkbox */}
+        {/* Checkbox pour marquer comme terminé */}
         <button
           onClick={() => onToggle(task._id, !task.completed)}
           className="shrink-0 mt-1"
+          type="button"
         >
           <div
             className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
@@ -77,12 +77,13 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           </p>
         </div>
 
-        {/* Actions */}
+        {/* Actions (Modifier et Supprimer) */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => onEdit(task)}
             className="p-2 text-slate-400 hover:text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
             aria-label="Modifier"
+            type="button"
           >
             <svg
               className="w-5 h-5"
@@ -103,6 +104,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
             onClick={() => onDelete(task._id)}
             className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
             aria-label="Supprimer"
+            type="button"
           >
             <svg
               className="w-5 h-5"
