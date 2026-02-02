@@ -48,11 +48,11 @@ export const Dashboard: React.FC = () => {
     try {
       if (editingTask) {
         // Mise à jour
-        const updatedTask = await taskService.updateTask(editingTask.id, {
+        const updatedTask = await taskService.updateTask(editingTask._id, {
           title,
           description,
         });
-        setTasks(tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
+        setTasks(tasks.map((t) => (t._id === updatedTask._id ? updatedTask : t)));
       } else {
         // Création
         const newTask = await taskService.createTask({ title, description });
