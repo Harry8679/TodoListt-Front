@@ -17,10 +17,10 @@ interface UpdateTaskData {
 //   tasks: Task[];
 // }
 
-interface TaskResponse {
-  success: boolean;
-  task: Task;
-}
+// interface TaskResponse {
+//   success: boolean;
+//   task: Task;
+// }
 
 class TaskService {
   /**
