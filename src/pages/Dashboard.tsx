@@ -12,6 +12,7 @@ export const Dashboard: React.FC = () => {
   const navigate = useNavigate();
   const user = authService.getCurrentUser();
 
+//   const [tasks, setTasks] = useState<Task[]>([]);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -113,11 +114,16 @@ export const Dashboard: React.FC = () => {
   };
 
   // Filtrer les tâches
-  const filteredTasks = tasks.filter((task) => {
+  const filteredTasks = (tasks ?? []).filter((task) => {
     if (filter === 'active') return !task.completed;
     if (filter === 'completed') return task.completed;
     return true;
   });
+//   const filteredTasks = tasks.filter((task) => {
+//     if (filter === 'active') return !task.completed;
+//     if (filter === 'completed') return task.completed;
+//     return true;
+//   });
 
   const completedCount = tasks.filter((t) => t.completed).length;
   const activeCount = tasks.filter((t) => !t.completed).length;
