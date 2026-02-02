@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Input } from '../ui';
 import { Button } from '../ui/Button';
-import type { Task } from '../../types/api.types';
+import type { Task } from '../../types/task.types';
+// import type { Task } from '../../types/api.types';
 
 interface TaskFormProps {
   onSubmit: (title: string, description: string) => void;
