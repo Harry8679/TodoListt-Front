@@ -252,7 +252,7 @@ export const Dashboard: React.FC = () => {
           <div className="space-y-3">
             {filteredTasks.map((task) => (
               <TaskItem
-                key={task.id}
+                key={task._id}
                 task={task}
                 onToggle={handleToggleTask}
                 onDelete={handleDeleteTask}
