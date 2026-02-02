@@ -120,7 +120,7 @@ export const Dashboard: React.FC = () => {
   });
 
   const completedCount = tasks.filter((t) => t.completed).length;
-  const activeCount = tasks.filter((t) => !task.completed).length;
+  const activeCount = tasks.filter((t) => !t.completed).length;
 
   return (
     <div className="min-h-screen bg-linear-to-br from-slate-50 to-blue-50">
