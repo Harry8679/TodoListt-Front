@@ -12,10 +12,10 @@ interface UpdateTaskData {
   completed?: boolean;
 }
 
-interface TasksResponse {
-  success: boolean;
-  tasks: Task[];
-}
+// interface TasksResponse {
+//   success: boolean;
+//   tasks: Task[];
+// }
 
 interface TaskResponse {
   success: boolean;
@@ -27,14 +27,24 @@ class TaskService {
    * Récupérer toutes les tâches de l'utilisateur
    */
   async getTasks(): Promise<Task[]> {
-    try {
-      const response = await apiClient.get<TasksResponse>('/api/tasks');
-      return response.data.tasks;
-    } catch (error) {
-      console.error('Erreur lors de la récupération des tâches:', error);
-      throw error;
-    }
+  try {
+    const response = await apiClient.get<Task[]>('/api/tasks');
+    return response.data; // ✅ DIRECTEMENT le tableau
+  } catch (error) {
+    console.error('Erreur lors de la récupération des tâches:', error);
+    throw error;
   }
+}
+
+  // async getTasks(): Promise<Task[]> {
+  //   try {
+  //     const response = await apiClient.get<TasksResponse>('/api/tasks');
+  //     return response.data.tasks;
+  //   } catch (error) {
+  //     console.error('Erreur lors de la récupération des tâches:', error);
+  //     throw error;
+  //   }
+  // }
 
   /**
    * Créer une nouvelle tâche
