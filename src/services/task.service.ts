@@ -97,16 +97,22 @@ class TaskService {
    * Basculer le statut d'une tâche (complété/non complété)
    */
   async toggleTaskCompletion(taskId: string, completed: boolean): Promise<Task> {
-    try {
-      const response = await apiClient.put<TaskResponse>(`/api/tasks/${taskId}`, {
-        completed,
-      });
-      return response.data.task;
-    } catch (error) {
-      console.error('Erreur lors du changement de statut:', error);
-      throw error;
-    }
+    const response = await apiClient.put<Task>(`/api/tasks/${taskId}`, {
+      completed,
+    });
+    return response.data;
   }
+  // async toggleTaskCompletion(taskId: string, completed: boolean): Promise<Task> {
+  //   try {
+  //     const response = await apiClient.put<TaskResponse>(`/api/tasks/${taskId}`, {
+  //       completed,
+  //     });
+  //     return response.data.task;
+  //   } catch (error) {
+  //     console.error('Erreur lors du changement de statut:', error);
+  //     throw error;
+  //   }
+  // }
 }
 
 export default new TaskService();
