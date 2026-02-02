@@ -54,7 +54,7 @@ export const Login: React.FC = () => {
 
       // Rediriger vers le dashboard après 2 secondes
       setTimeout(() => {
-        navigate('/dashboard');
+        navigate('/tableau-de-bord');
       }, 2000);
 
     } catch (error: unknown) {

@@ -60,7 +60,7 @@ export const Register: React.FC = () => {
 
       // Rediriger après 2 secondes
       setTimeout(() => {
-        // window.location.href = '/dashboard';
+        // window.location.href = '/tableau-de-bord';
         console.log('Redirection vers le dashboard...');
       }, 2000);
 
