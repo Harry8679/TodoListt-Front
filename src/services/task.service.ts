@@ -50,14 +50,18 @@ class TaskService {
    * Créer une nouvelle tâche
    */
   async createTask(taskData: CreateTaskData): Promise<Task> {
-    try {
-      const response = await apiClient.post<TaskResponse>('/api/tasks', taskData);
-      return response.data.task;
-    } catch (error) {
-      console.error('Erreur lors de la création de la tâche:', error);
-      throw error;
-    }
+    const response = await apiClient.post<Task>('/api/tasks', taskData);
+    return response.data;
   }
+  // async createTask(taskData: CreateTaskData): Promise<Task> {
+  //   try {
+  //     const response = await apiClient.post<TaskResponse>('/api/tasks', taskData);
+  //     return response.data.task;
+  //   } catch (error) {
+  //     console.error('Erreur lors de la création de la tâche:', error);
+  //     throw error;
+  //   }
+  // }
 
   /**
    * Mettre à jour une tâche
