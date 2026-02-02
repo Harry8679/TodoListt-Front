@@ -74,7 +74,7 @@ export const Dashboard: React.FC = () => {
   const handleToggleTask = async (taskId: string, completed: boolean) => {
     try {
       const updatedTask = await taskService.toggleTaskCompletion(taskId, completed);
-      setTasks(tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
+      setTasks(tasks.map((t) => (t._id === updatedTask._id ? updatedTask : t)));
     } catch (error) {
       setError('Erreur lors de la mise à jour');
       console.error(error);
@@ -88,7 +88,7 @@ export const Dashboard: React.FC = () => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
       try {
         await taskService.deleteTask(taskId);
-        setTasks(tasks.filter((t) => t.id !== taskId));
+        setTasks(tasks.filter((t) => t._id !== taskId));
       } catch (error) {
         setError('Erreur lors de la suppression');
         console.error(error);
