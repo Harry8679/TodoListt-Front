@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Input } from '../ui';
 import { Button } from '../ui/Button';
-import type { Task } from '../../types/task.types';
+import type { Task } from '../../types/api.types';
 
 interface TaskFormProps {
   onSubmit: (title: string, description: string) => void;
@@ -22,6 +22,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({
   });
 
   // Synchronise le formulaire quand on édite une tâche
+  // SOLUTION : Ajouter les valeurs spécifiques dans les dépendances
   useEffect(() => {
     if (editingTask) {
       setForm({
@@ -31,7 +32,8 @@ export const TaskForm: React.FC<TaskFormProps> = ({
     } else {
       setForm({ title: '', description: '' });
     }
-  }, [editingTask]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editingTask?.id]); // ✅ Ne dépendre QUE de l'ID
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
